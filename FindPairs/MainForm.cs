@@ -98,8 +98,9 @@ namespace FindPairs
 
         private void WriteFile()
         {
-            string content = string.Join(" ", name, score, seconds, "\n");
-            File.AppendAllText(BASE_PATH, content);
+            string fileContent = File.ReadAllText(BASE_PATH).Trim();
+            string content = string.Join(" ", name, score, seconds);
+            File.WriteAllText(BASE_PATH, fileContent + "\n" + content);
             SortFile();
         }
 
